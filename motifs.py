@@ -1,7 +1,19 @@
 import turtle
 import os
+from PIL import Image   #importe Pillow pour convertir l'image .eps en png
 
-def dessiner(nb_cotes,taille,repetitions,angle,couleur,nom_fichier="motif.png"):
+def enregistrement(fichier_png, fichier_eps="temp.eps"):
+
+    canvas = turtle.getcanvas() #création de la surface de dessin
+    canvas.postscript(file=fichier_eps) #enregistre le dessin en format eps(vectoriel)    
+
+    img = Image.open(fichier_eps)
+    img.save(fichier_png, 'png')
+
+    turtle.clearscreen()    #nettoie la fenêtre
+    os.remove(fichier_eps)  #supprime le fichier eps
+
+def rosace_polygonale(nb_cotes,taille,repetitions,angle,couleur,fichier="dessin.png"):
     turtle.setup(width=800, height=800)
     turtle.bgcolor("white")
     turtle.speed(0) #vitesse de dessin au maximum
@@ -14,16 +26,6 @@ def dessiner(nb_cotes,taille,repetitions,angle,couleur,nom_fichier="motif.png"):
             turtle.left(360 / nb_cotes)
         turtle.left(angle)  #tourne la tortue pour former un nouveau motif
 
-    canvas = turtle.getcanvas() #création de la surface de dessin
+    enregistrement(fichier)
 
-    fichier_eps = "dessin.eps"     
-    canvas.postscript(file=fichier_eps) #enregistre le dessin en format eps(vectoriel)
-
-    from PIL import Image  #importe Pillow pour convertir l'image .eps en png
-    img = Image.open(fichier_eps)
-    img.save("dessin.png", 'png')
-
-    turtle.clearscreen()    #nettoie la fenêtre
-    os.remove(fichier_eps)  #supprime le fichier eps
-
-
+   
