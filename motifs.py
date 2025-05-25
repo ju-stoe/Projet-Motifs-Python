@@ -12,4 +12,9 @@ def dessiner(nb_cotes,taille,repetitions,angle,couleur,nom_fichier="motif.png"):
         for _ in range(nb_cotes):   #dessine un polygone régulier
             turtle.forward(taille)
             turtle.left(360 / nb_cotes)
-        turtle.left(angle)
+        turtle.left(angle)  #tourne la tortue pour former un nouveau motif
+
+canvas = turtle.getcanvas() #création de la surface de dessin
+
+fichier_eps = "dessin.eps"     
+canvas.postscript(file=fichier_eps) #enregistre le dessin en format eps(vectoriel)
