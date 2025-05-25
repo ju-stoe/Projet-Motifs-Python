@@ -14,7 +14,16 @@ def dessiner(nb_cotes,taille,repetitions,angle,couleur,nom_fichier="motif.png"):
             turtle.left(360 / nb_cotes)
         turtle.left(angle)  #tourne la tortue pour former un nouveau motif
 
-canvas = turtle.getcanvas() #création de la surface de dessin
+    canvas = turtle.getcanvas() #création de la surface de dessin
 
-fichier_eps = "dessin.eps"     
-canvas.postscript(file=fichier_eps) #enregistre le dessin en format eps(vectoriel)
+    fichier_eps = "dessin.eps"     
+    canvas.postscript(file=fichier_eps) #enregistre le dessin en format eps(vectoriel)
+
+    from PIL import Image  #importe Pillow pour convertir l'image .eps en png
+    img = Image.open(fichier_eps)
+    img.save("dessin.png", 'png')
+
+    turtle.clearscreen()    #nettoie la fenêtre
+    os.remove(fichier_eps)  #supprime le fichier eps
+
+
