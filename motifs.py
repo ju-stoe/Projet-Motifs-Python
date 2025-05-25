@@ -2,7 +2,7 @@ import turtle
 import os
 from PIL import Image   #importe Pillow pour convertir l'image .eps en png
 
-def enregistrement(fichier_png, fichier_eps="temp.eps"):
+def enregistrement(fichier_png, fichier_eps="motif.eps"):
 
     canvas = turtle.getcanvas() #création de la surface de dessin
     canvas.postscript(file=fichier_eps) #enregistre le dessin en format eps(vectoriel)    
@@ -13,7 +13,7 @@ def enregistrement(fichier_png, fichier_eps="temp.eps"):
     turtle.clearscreen()    #nettoie la fenêtre
     os.remove(fichier_eps)  #supprime le fichier eps
 
-def rosace_polygonale(nb_cotes,taille,repetitions,angle,couleur,fichier="dessin.png"):
+def rosace_polygonale(cotes,taille,repetitions,angle,couleur,fichier="dessin.png"):
     turtle.setup(width=800, height=800)
     turtle.bgcolor("white")
     turtle.speed(0) #vitesse de dessin au maximum
@@ -21,11 +21,27 @@ def rosace_polygonale(nb_cotes,taille,repetitions,angle,couleur,fichier="dessin.
     turtle.color(couleur)
 
     for _ in range(repetitions):
-        for _ in range(nb_cotes):   #dessine un polygone régulier
+        for _ in range(cotes):   #dessine un polygone régulier
             turtle.forward(taille)
-            turtle.left(360 / nb_cotes)
+            turtle.left(360 / cotes)
         turtle.left(angle)  #tourne la tortue pour former un nouveau motif
 
     enregistrement(fichier)
 
-   
+def spirale_polygonale(cotes, taille, repetitions, angle, couleur, fichier="dessin.png"):
+    turtle.setup(width=800, height=800)
+    turtle.bgcolor("white")
+    turtle.speed(0)
+    turtle.hideturtle()
+    turtle.color(couleur)
+
+    agrandissement = taille
+
+    for _ in range(repetitions):
+        for _ in range(cotes):
+            turtle.forward(taille)
+            turtle.left(360 / cotes)
+        turtle.left(angle)
+        agrandissement += 5 
+
+    enregistrement(fichier)
