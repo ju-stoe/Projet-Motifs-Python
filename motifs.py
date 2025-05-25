@@ -13,6 +13,14 @@ def enregistrement(fichier_png, fichier_eps="motif.eps"):
     turtle.clearscreen()    #nettoie la fenêtre
     os.remove(fichier_eps)  #supprime le fichier eps
 
+def dessiner(type, cotes, taille, repetitions, angle, couleur, fichier="dessin.png"):
+    if type == "rosace":
+        rosace_polygonale(cotes, taille, repetitions, angle, couleur, fichier)
+    elif type == "spirale":
+        spirale_polygonale(cotes, taille, repetitions, angle, couleur, fichier)
+    else:
+        print("Ce motif n'est pas reconnu.", type)
+
 def rosace_polygonale(cotes,taille,repetitions,angle,couleur,fichier="dessin.png"):
     turtle.setup(width=800, height=800)
     turtle.bgcolor("white")
