@@ -11,7 +11,6 @@ def enregistrement(fichier_png, fichier_eps="motif.eps"):
     img.save(fichier_png, 'png')
 
     turtle.clearscreen()    #nettoie la fenêtre
-    os.remove(fichier_eps)  #supprime le fichier eps
 
 def dessiner(type, cotes, taille, repetitions, angle, couleur, fichier="dessin.png"):
     if type == "rosace":
@@ -28,8 +27,8 @@ def rosace_polygonale(cotes,taille,repetitions,angle,couleur,fichier="dessin.png
     turtle.hideturtle() #cache le stylo pour ne pas le voir pendant le dessin
     turtle.color(couleur)
 
-    for _ in range(repetitions):
-        for _ in range(cotes):   #dessine un polygone régulier
+    for i in range(repetitions):
+        for i in range(cotes):   #dessine un polygone régulier
             turtle.forward(taille)
             turtle.left(360 / cotes)
         turtle.left(angle)  #tourne la tortue pour former un nouveau motif
@@ -45,11 +44,28 @@ def spirale_polygonale(cotes, taille, repetitions, angle, couleur, fichier="dess
 
     agrandissement = taille #augmente la taille a chaque répétitions
 
-    for _ in range(repetitions):
-        for _ in range(cotes):
+    for i in range(repetitions):
+        for i in range(cotes):
             turtle.forward(taille)
             turtle.left(360 / cotes)
         turtle.left(angle)
         agrandissement += 5 
 
     enregistrement(fichier)
+
+def main():
+    print("Générateur de motif géométrique")
+    type_motif = input("Type: ").strip().lower()
+    cotes = int(input("Nombre de côtés: "))
+    taille = int(input("Taille: "))
+    repetitions = int(input("Nombre de répétitions: "))
+    angle = int(input("Angle entre chaque motif: "))
+    couleur = input("Couleur: ").strip().lower()
+
+    dessiner(type_motif, cotes, taille, repetitions, angle, couleur)
+    print("Motif généré et enregistré sous 'dessin.png'")
+
+if __name__ == "__main__":
+    main()
+
+os.remove("motif.eps")  #supprime le fichier eps
