@@ -43,7 +43,7 @@ def spirale_polygonale(cotes, taille, repetitions, angle, couleur, fichier="dess
     turtle.hideturtle()
     turtle.color(couleur)
 
-    agrandissement = taille
+    agrandissement = taille #augmente la taille a chaque répétitions
 
     for _ in range(repetitions):
         for _ in range(cotes):
