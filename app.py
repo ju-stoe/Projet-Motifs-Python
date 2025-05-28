@@ -16,4 +16,30 @@ def index():
         type_motif = request.form.get('type_motif')
         couleur = request.form.get('couleur', 'black')
 
+        try:
+            if type_motif in['rosace', 'polygone']:
+                cotes = int(request.form.get('cotes'))
+                taille = int(request.form.get('taille'))
+                repetitions = int(request.form.get('repetitions'))
+                angle = int(request.form.get('angle'))
+                
+                filename = f"{type_motif}.png"
+                fichier = os.path.join(IMAGE_FOLDER, filename)
+                dessiner(type_motif, cotes, taille, repetitions, angle, couleur, fichier)
+                image_file = filename
+            
+            elif type_motif == 'fractale':
+                taille = int(request.form.get('taille'))
+                niveau = int(request.form.get('niveau'))
+                filename = "fractale.png"
+                fichier = os.path.join(IMAGE_FOLDER, filename)
+                dessiner(type_motif, 0, taille, niveau, 0, couleur, fichier)
+                image_file = filename
+
+            else:
+                error = "Motif non reconnu."
+
+        except (ValueError, TypeError):
+            error = "Erreur d'entrée."
+
 
