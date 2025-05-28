@@ -104,4 +104,5 @@ def main(): #interactions avec l'utilisateur
 if __name__ == "__main__":  #test
     main()
 
-os.remove("motif.eps")  #supprime le fichier eps
+if os.path.exists("motif.eps"):
+    os.remove("motif.eps")    #supprime le fichier eps
