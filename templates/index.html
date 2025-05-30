@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <title>Générateur de motifs géométriques</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 30px; }
+        label { display: block; margin-top: 10px; }
+        input, select { margin-top: 5px; padding: 5px; }
+        .error { color: red; margin-top: 15px; }
+        .result img { margin-top: 20px; max-width: 100%; height: auto; border: 1px solid #ccc; }
+    </style>
+    <script>
+        function updateForm() {
+            const type = document.getElementById('type_motif').value;
+            document.getElementById('params_polygone_spirale').style.display = 'none';
+            document.getElementById('params_fractale').style.display = 'none';
+
+            if (type === 'polygone' || type === 'spirale') {
+                document.getElementById('params_polygone_spirale').style.display = 'block';
+            } else if (type === 'fractale') {
+                document.getElementById('params_fractale').style.display = 'block';
+            }
+        }
+
+        window.onload = updateForm;
+    </script>
+</head>
+<body>
+    <h1>Générateur de motifs géométriques</h1>
+    <form method="POST" action="/">
+        <label for="type_motif">Type de motif :</label>
+        <select name="type_motif" id="type_motif" onchange="updateForm()">
+            <option value="polygone" {% if request.form.get('type_motif') == 'polygone' %}selected{% endif %}>Polygone</option>
+            <option value="spirale" {% if request.form.get('type_motif') == 'spirale' %}selected{% endif %}>Spirale</option>
+            <option value="fractale" {% if request.form.get('type_motif') == 'fractale' %}selected{% endif %}>Fractale</option>
+        </select>
+
+        <label for="couleur">Couleur :</label>
+        <input type="text" name="couleur" id="couleur" value="{{ request.form.get('couleur', 'black') }}" />
+
+        <!-- Paramètres pour polygone et spirale -->
+        <div id="params_polygone_spirale" style="display:none;">
+            <label for="cotes">Nombre de côtés :</label>
+            <input type="number" name="cotes" id="cotes" min="3" value="{{ request.form.get('cotes', 3) }}" />
+
+            <label for="taille">Taille de base :</label>
+            <input type="number" name="taille" id="taille" min="1" value="{{ request.form.get('taille', 100) }}" />
+
+            <label for="repetitions">Nombre de répétitions :</label>
+            <!-- Augmentation de la limite max à 1000 -->
+            <input type="number" name="repetitions" id="repetitions" min="1" max="1000" value="{{ request.form.get('repetitions', 10) }}" />
+
+            <label for="angle">Angle entre chaque motif :</label>
+            <input type="number" name="angle" id="angle" min="0" max="360" value="{{ request.form.get('angle', 10) }}" />
+        </div>
+
+        <!-- Paramètres pour fractale -->
+        <div id="params_fractale" style="display:none;">
+            <label for="taille_fractale">Longueur initiale :</label>
+            <input type="number" name="taille_fractale" id="taille_fractale" min="1" value="{{ request.form.get('taille_fractale', 100) }}" />
+
+            <label for="niveau">Niveau de récursion :</label>
+            <input type="number" name="niveau" id="niveau" min="1" max="10" value="{{ request.form.get('niveau', 4) }}" />
+        </div>
+
+        <button type="submit" style="margin-top:15px;">Générer le motif</button>
+    </form>
+
+    {% if error %}
+        <div class="error">Erreur : {{ error }}</div>
+    {% endif %}
+
+    {% if image_file %}
+        <div class="result">
+            <h2>Motif généré :</h2>
+            <img src="{{ url_for('static', filename='images/' + image_file) }}" alt="Motif généré" />
+        </div>
+    {% endif %}
+</body>
+</html>
