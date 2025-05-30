@@ -1,0 +1,26 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 30px;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+}
+
+input, select {
+    margin-top: 5px;
+    padding: 5px;
+}
+
+.error {
+    color: red;
+    margin-top: 15px;
+}
+
+.result img {
+    margin-top: 20px;
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ccc;
+}

@@ -109,7 +109,7 @@ def main(): #interactions avec l'utilisateur
         dessiner(utilisateur, 0, taille, niveau, 0, couleur)  # cotes, repetitions et angle inutiles ici
     
     else:
-        print("Motif inconnu, veuillez réessayer")
+        print("Motif inconnu")
 
     print("Motif sauvegardé dans 'dessin.png'")
 
