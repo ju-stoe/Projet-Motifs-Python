@@ -26,6 +26,7 @@ def dessiner(type, cotes, taille, repetitions, angle, couleur, fichier="dessin.p
         print("Motif inconnu", type)
 
 def polygone(cotes,taille,repetitions,angle,couleur,fichier="dessin.png"):
+    turtle.Screen()._root.withdraw()
     turtle.bgcolor("white")
     turtle.speed(0) #vitesse de dessin au maximum pour être plus rapide
     turtle.hideturtle() #cache la tortue pour ne pas voir le curseur
@@ -40,6 +41,7 @@ def polygone(cotes,taille,repetitions,angle,couleur,fichier="dessin.png"):
     sauvegarde(fichier)
 
 def spirale(cotes, taille, repetitions, angle, couleur, fichier="dessin.png"):
+    turtle.Screen()._root.withdraw()
     turtle.bgcolor("white")
     turtle.speed(0)
     turtle.hideturtle()
@@ -56,6 +58,7 @@ def spirale(cotes, taille, repetitions, angle, couleur, fichier="dessin.png"):
     sauvegarde(fichier)
 
 def fractale(longueur, niveau, couleur, fichier="dessin.png"):
+    turtle.Screen()._root.withdraw()
     turtle.bgcolor("white")
     turtle.speed(0)
     turtle.hideturtle()
@@ -81,6 +84,7 @@ def fractale(longueur, niveau, couleur, fichier="dessin.png"):
     sauvegarde(fichier)
 
 def cercle(rayon, repetitions, angle, couleur, fichier="dessin.png"):
+    turtle.Screen()._root.withdraw()
     turtle.bgcolor("white")
     turtle.speed(0)
     turtle.hideturtle()
