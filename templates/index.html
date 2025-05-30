@@ -39,7 +39,11 @@
         <label for="couleur">Couleur :</label>
         <input type="text" name="couleur" id="couleur" value="{{ request.form.get('couleur', 'black') }}" />
 
-        <!-- Paramètres pour polygone et spirale -->
+        <label for="nom_fichier">Nom du fichier (sans extension) :</label>
+        <input type="text" name="nom_fichier" id="nom_fichier" value="{{ request.form.get('nom_fichier', '') }}" />
+
+
+        
         <div id="params_polygone_spirale" style="display:none;">
             <label for="cotes">Nombre de côtés :</label>
             <input type="number" name="cotes" id="cotes" min="3" value="{{ request.form.get('cotes', 3) }}" />
@@ -48,14 +52,14 @@
             <input type="number" name="taille" id="taille" min="1" value="{{ request.form.get('taille', 100) }}" />
 
             <label for="repetitions">Nombre de répétitions :</label>
-            <!-- Augmentation de la limite max à 1000 -->
+            
             <input type="number" name="repetitions" id="repetitions" min="1" max="1000" value="{{ request.form.get('repetitions', 10) }}" />
 
             <label for="angle">Angle entre chaque motif :</label>
             <input type="number" name="angle" id="angle" min="0" max="360" value="{{ request.form.get('angle', 10) }}" />
         </div>
 
-        <!-- Paramètres pour fractale -->
+        
         <div id="params_fractale" style="display:none;">
             <label for="taille_fractale">Longueur initiale :</label>
             <input type="number" name="taille_fractale" id="taille_fractale" min="1" value="{{ request.form.get('taille_fractale', 100) }}" />
