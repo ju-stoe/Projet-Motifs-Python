@@ -21,7 +21,7 @@ input, select, button {
     background-color: #f3e8b1;
     box-shadow: 0 0 10px #764d0e;
     font-size: 80%;
-    
+
 }
 
 .error {
@@ -32,8 +32,9 @@ input, select, button {
 .result img {
     max-width: 100%;
     height: auto;
-    border: 1px solid #ccc;
+    border: 1px solid #ffe6be;
     border-radius: 10px;
+    text-shadow: #2b1700;
 }
 
 h1 {
@@ -41,6 +42,7 @@ h1 {
     font-family: 'Georgia', serif;
     font-size: 3em;
     text-shadow: 0 0 20px #589221; 
+    color:#2d1304
 }
 
 .formulaire {
@@ -80,10 +82,12 @@ input:focus, select:focus {
     flex: 1;
     max-width: 50%; 
     text-align: center;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 163, 183, 0.8);
     padding: 20px;
     border-radius: 15px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-shadow: 0 0 30px rgba(0,0,0,0.1);
     font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 160%;
+    color:#3d2a04
     
 }
