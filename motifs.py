@@ -20,6 +20,8 @@ def dessiner(type, cotes, taille, repetitions, angle, couleur, fichier="dessin.p
         spirale(cotes, taille, repetitions, angle, couleur, fichier)
     elif type == "fractale":
         fractale(taille, repetitions, couleur, fichier)
+    elif type == "cercle":
+        cercle(taille, repetitions, angle, couleur, fichier)
     else:
         print("Motif inconnu", type)
 
@@ -78,6 +80,18 @@ def fractale(longueur, niveau, couleur, fichier="dessin.png"):
 
     sauvegarde(fichier)
 
+def cercle(rayon, repetitions, angle, couleur, fichier="dessin.png"):
+    turtle.bgcolor("white")
+    turtle.speed(0)
+    turtle.hideturtle()
+    turtle.color(couleur)
+
+    for _ in range(repetitions):
+        turtle.circle(rayon)
+        turtle.left(angle)
+
+    sauvegarde(fichier)
+
 def main(): #interactions avec l'utilisateur
     print("Générateur de motifs géométriques")
     utilisateur = input("Entrez un type de motif(polygone, spirale, fractale): ").strip().lower()
@@ -93,6 +107,7 @@ def main(): #interactions avec l'utilisateur
         niveau = int(input("Niveau de récursion: "))
         couleur = input("Couleur: ").strip().lower()
         dessiner(utilisateur, 0, taille, niveau, 0, couleur)  # cotes, repetitions et angle inutiles ici
+    
     else:
         print("Motif inconnu, veuillez réessayer")
 

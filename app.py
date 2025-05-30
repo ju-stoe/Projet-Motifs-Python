@@ -41,7 +41,7 @@ def index():
             counter += 1
 
         try:
-            if type_motif in ['polygone', 'spirale']:
+            if type_motif in ['polygone', 'spirale', 'cercle']:
                 cotes = int(request.form.get('cotes'))
                 taille = int(request.form.get('taille'))
                 repetitions = int(request.form.get('repetitions'))
