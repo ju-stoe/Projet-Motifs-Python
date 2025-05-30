@@ -1,6 +1,10 @@
 body {
     font-family: Arial, sans-serif;
-    margin: 30px;
+    margin: 10px;
+    background-image: url("/static/images/fond.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 label {
@@ -8,9 +12,11 @@ label {
     margin-top: 10px;
 }
 
-input, select {
+input, select, button {
     margin-top: 5px;
     padding: 5px;
+    border: 2px solid #e16fbf;
+    width: 100%;
 }
 
 .error {
@@ -19,8 +25,79 @@ input, select {
 }
 
 .result img {
-    margin-top: 20px;
     max-width: 100%;
     height: auto;
     border: 1px solid #ccc;
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Georgia', serif;
+    font-size: 3em;
+    text-shadow: 0 0 10px #b3b2b2;
+    
+}
+
+
+.formulaire {
+    flex: 1;
+    min-width: 300px;
+}
+
+/* .result {
+    text-align: center;
+    display: flex;
+    width: 49%;
+    flex-direction: column;
+} */
+
+
+#container_input{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    margin-left: 5%;
+    /* width: 50%; */
+    text-align: left;
+}
+
+.input{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 15px;
+}
+
+input:focus, select:focus {
+    outline: none; 
+    border: 2px solid #e16fbf; 
+    box-shadow: 0 0 5px #e16fbf; 
+}
+
+.result img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+
+#container {
+    display: flex;
+    justify-content: left;
+    align-items: flex-start;
+    gap: 50px; /* Ajuste l'espace horizontal entre les blocs */
+    margin-top: 30px;
+    padding: 20px;
+}
+
+
+
+
+.result {
+    flex: 1;
+    max-width: 50%; /* Même taille que le formulaire */
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
