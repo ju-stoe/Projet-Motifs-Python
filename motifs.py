@@ -22,6 +22,10 @@ def dessiner(type, cotes, taille, repetitions, angle, couleur, fichier="dessin.p
         fractale(taille, repetitions, couleur, fichier)
     elif type == "cercle":
         cercle(taille, repetitions, angle, couleur, fichier)
+    elif type == "coeur":
+        coeur(taille, repetitions, angle, couleur, fichier)
+    elif type == "etoile":
+        etoile(taille, repetitions, angle, couleur, fichier)
     else:
         print("Motif inconnu", type)
 
@@ -96,11 +100,52 @@ def cercle(rayon, repetitions, angle, couleur, fichier="dessin.png"):
 
     sauvegarde(fichier)
 
-def main(): #interactions avec l'utilisateur
+def coeur(taille, repetitions, angle, couleur, fichier="dessin.png"):
+    turtle.Screen()._root.withdraw()
+    turtle.bgcolor("white")
+    turtle.speed(0)
+    turtle.hideturtle()
+    turtle.color(couleur)
+    
+    for _ in range(repetitions):
+        turtle.begin_fill()
+        turtle.left(45)
+        turtle.forward(taille)
+        turtle.circle(taille / 2, 180)
+        turtle.right(90)
+        turtle.circle(taille / 2, 180)
+        turtle.forward(taille)
+        turtle.left(135)
+        turtle.end_fill()
+        turtle.left(angle)
+
+    sauvegarde(fichier)
+
+def etoile(taille, repetitions, angle, couleur, fichier="dessin.png"):
+    turtle.Screen()._root.withdraw()
+    turtle.bgcolor("white")
+    turtle.speed(0)
+    turtle.hideturtle()
+    turtle.color(couleur)
+
+    def dessine_etoile():
+        for _ in range(5):
+            turtle.forward(taille)
+            turtle.right(144)
+
+    for _ in range(repetitions):
+        dessine_etoile()
+        turtle.left(angle)
+
+    sauvegarde(fichier)
+
+def main():
     print("Générateur de motifs géométriques")
-    utilisateur = input("Entrez un type de motif(polygone, spirale, fractale): ").strip().lower()
-    if utilisateur in ["polygone", "spirale"]:
-        cotes = int(input("Entrez le nombre de côtés: "))
+    utilisateur = input("Entrez un type de motif (polygone, spirale, fractale, cercle, coeur, etoile): ").strip().lower()
+    if utilisateur in ["polygone", "spirale", "cercle", "coeur", "etoile"]:
+        cotes = 0  
+        if utilisateur == "polygone" or utilisateur == "spirale":
+            cotes = int(input("Entrez le nombre de côtés: "))
         taille = int(input("Entrez la taille de base: "))
         repetitions = int(input("Combien de répétitions?: "))
         angle = int(input("Quel angle entre chaque motif?: "))
@@ -110,8 +155,7 @@ def main(): #interactions avec l'utilisateur
         taille = int(input("Longueur initiale: "))
         niveau = int(input("Niveau de récursion: "))
         couleur = input("Couleur: ").strip().lower()
-        dessiner(utilisateur, 0, taille, niveau, 0, couleur)  # cotes, repetitions et angle inutiles ici
-    
+        dessiner(utilisateur, 0, taille, niveau, 0, couleur)
     else:
         print("Motif inconnu")
 

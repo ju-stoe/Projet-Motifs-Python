@@ -20,6 +20,8 @@
                         <option value="spirale" {% if request.form.get('type_motif')=='spirale' %}selected{% endif %}>Spirale</option>
                         <option value="fractale" {% if request.form.get('type_motif')=='fractale' %}selected{% endif %}>Fractale</option>
                         <option value="cercle" {% if request.form.get('type_motif')=='cercle' %}selected{% endif %}>Cercle</option>
+                        <option value="etoile" {% if request.form.get('type_motif')=='etoile' %}selected{% endif %}>Étoile</option>
+                        <option value="coeur" {% if request.form.get('type_motif')=='coeur' %}selected{% endif %}>Coeur</option>
                     </select>
                 </div>
 
@@ -33,7 +35,7 @@
                     <input type="text" name="nom_fichier" id="nom_fichier" value="{{ request.form.get('nom_fichier', '') }}" />
                 </div>
 
-                <!-- Polygone / Spirale / Cercle -->
+                <!-- Polygone / Spirale / Cercle / Coeur / Étoile -->
                 <div id="params_polygone_spirale" style="display:none;">
                     <div class="input">
                         <label for="cotes">Nombre de côtés :</label>
