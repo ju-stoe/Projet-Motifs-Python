@@ -1,17 +1,16 @@
+/*page*/
 body {
-    font-family: Arial, sans-serif;
     margin: 10%;
-    background-image: url("/static/images/fond.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-image: url("/static/images/fond.jpg");  /*fond*/
 }
 
+/*étiquettes des champs de formulaire*/
 label {
     display: block;
     margin-top: 5%;
 }
 
+/*champs input, select, et boutons*/
 input, select, button {
     margin-top: 5%;
     padding: 2%;
@@ -25,52 +24,45 @@ input, select, button {
 
 }
 
+
+/*messages d’erreur*/
 .error {
     color: rgb(229, 157, 48);
     margin-top: 15px;
 }
 
+/*image du résultat généré*/
 .result img {
     max-width: 100%;
     height: auto;
     border: 1% solid #ffe6be;
     border-radius: 20%;
-    text-shadow: #2b1700;
 }
 
+/*Titre principal*/
 h1 {
     text-align: center;
     font-family: 'Georgia', serif;
     font-size: 3em;
-    text-shadow: 0 0 20% #589221; 
+    text-shadow: 0 0 20px #589221; 
     color:#2d1304
 }
 
-.formulaire {
-    flex: 1;
-    min-width: 300px;
-}
 
-#container_input{
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    margin-left: 5%;
-    text-align: left;
-}
-
+/*blocs de champ */
 .input{
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 150%;
     color: #2b1700;
 }
 
+/*quand un champ est sélectionné*/
 input:focus, select:focus {
     outline: none; 
-    border: 5% solid #e16fbf; 
-    box-shadow: 0 0 10% #e16fbf; 
+    box-shadow: 0 0 20px #ed82a0; 
 }
 
+/*Aligne le formulaire et le résultat*/
 #container {
     display: flex;
     justify-content: left;
@@ -79,6 +71,7 @@ input:focus, select:focus {
     margin-top: 4%;
 }
 
+/*bloc contenant le résultat généré*/
 .result {
     flex: 1;
     max-width: 50%; 
@@ -93,6 +86,7 @@ input:focus, select:focus {
     
 }
 
+/* Adaptation responsive*/
 @media (max-width: 768px) {
     #container {
         flex-direction: column;
