@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    margin: 10px;
+    margin: 10%;
     background-image: url("/static/images/fond.jpg");
     background-size: cover;
     background-repeat: no-repeat;
@@ -9,18 +9,19 @@ body {
 
 label {
     display: block;
-    margin-top: 10px;
+    margin-top: 5%;
 }
 
 input, select, button {
-    margin-top: 5px;
-    padding: 5px;
+    margin-top: 5%;
+    padding: 2%;
     border: 2px solid #d2ad27;
     color: #2b1700;
     width: 100%;
     background-color: #f3e8b1;
     box-shadow: 0 0 10px #764d0e;
-    font-size: 80%;
+    font-size: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 
 }
 
@@ -32,8 +33,8 @@ input, select, button {
 .result img {
     max-width: 100%;
     height: auto;
-    border: 1px solid #ffe6be;
-    border-radius: 10px;
+    border: 1% solid #ffe6be;
+    border-radius: 20%;
     text-shadow: #2b1700;
 }
 
@@ -41,7 +42,7 @@ h1 {
     text-align: center;
     font-family: 'Georgia', serif;
     font-size: 3em;
-    text-shadow: 0 0 20px #589221; 
+    text-shadow: 0 0 20% #589221; 
     color:#2d1304
 }
 
@@ -60,22 +61,22 @@ h1 {
 
 .input{
     font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 20px;
+    font-size: 150%;
+    color: #2b1700;
 }
 
 input:focus, select:focus {
     outline: none; 
-    border: 2px solid #e16fbf; 
-    box-shadow: 0 0 10px #e16fbf; 
+    border: 5% solid #e16fbf; 
+    box-shadow: 0 0 10% #e16fbf; 
 }
 
 #container {
     display: flex;
     justify-content: left;
     align-items: flex-start;
-    gap: 50px;
-    margin-top: 30px;
-    padding: 20px;
+    gap: 20%;
+    margin-top: 4%;
 }
 
 .result {
@@ -83,11 +84,25 @@ input:focus, select:focus {
     max-width: 50%; 
     text-align: center;
     background-color: rgba(255, 163, 183, 0.8);
-    padding: 20px;
-    border-radius: 15px;
+    padding: 3%;
+    border-radius: 5%;
     box-shadow: 0 0 30px rgba(0,0,0,0.1);
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 160%;
     color:#3d2a04
     
+}
+
+@media (max-width: 768px) {
+    #container {
+        flex-direction: column;
+        align-items: center;
+        gap: 5%;
+    }
+
+    .formulaire,
+    .result {
+        max-width: 100%;
+        width: 90%;
+    }
 }
