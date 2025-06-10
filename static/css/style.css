@@ -33,10 +33,7 @@ input, select, button {
 
 /*image du résultat généré*/
 .result img {
-    max-width: 100%;
-    height: auto;
-    border: 1% solid #ffe6be;
-    border-radius: 20%;
+    border-radius: 15%;
 }
 
 /*Titre principal*/
@@ -48,12 +45,12 @@ h1 {
     color:#2d1304
 }
 
-
 /*blocs de champ */
 .input{
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 150%;
     color: #2b1700;
+    text-shadow: 0 0 15px #2b1700;
 }
 
 /*quand un champ est sélectionné*/
@@ -79,7 +76,6 @@ input:focus, select:focus {
     background-color: rgba(255, 163, 183, 0.8);
     padding: 3%;
     border-radius: 5%;
-    box-shadow: 0 0 30px rgba(0,0,0,0.1);
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 160%;
     color:#3d2a04
