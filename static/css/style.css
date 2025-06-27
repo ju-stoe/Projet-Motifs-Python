@@ -1,7 +1,7 @@
 /*page*/
 body {
     margin: 10%;
-    background-image: url("/static/images/fond.jpg");  /*fond*/
+    background-image: url("/static/css/fond.jpg");  /*fond*/
 }
 
 /*étiquettes des champs de formulaire*/
@@ -45,7 +45,7 @@ input:hover, select:hover, button:hover {
 
 /*Titre principal*/
 h1 {
-    position: relative;               /* permet à ::before de se positionner correctement */
+    position: relative;          
     top: -40px;                       
     text-align: center;
     font-family: 'Georgia', serif;
@@ -193,5 +193,11 @@ a.bouton-lien:hover {
     cursor: pointer;
 }
 
+/*curseur en forme de crayon*/
+body {
+    cursor: url("/static/css/crayon.png"), auto;
+}
 
-
+* {
+    cursor: url("/static/css/crayon.png") 4 28, auto;
+}
