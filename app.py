@@ -84,6 +84,22 @@ def index():
 
     return render_template('index.html', error=error, image_file=image_file)
 
+
+@application.route('/galerie')
+def galerie():
+    images = []
+
+    # Parcourt les fichiers dans static/images
+    for filename in os.listdir(IMAGE_FOLDER):
+        if filename.endswith('.png'):
+            images.append(filename)
+
+    # Trie du plus récent au plus ancien (optionnel)
+    images.sort(key=lambda x: os.path.getmtime(os.path.join(IMAGE_FOLDER, x)), reverse=True)
+
+    return render_template('galerie.html', images=images)
+
+
 # lance l'application
 if __name__ == '__main__':
     import multiprocessing

@@ -53,7 +53,7 @@
                     </div>
                     <div class="input">
                         <label for="repetitions">Répétitions :</label>
-                        <input type="number" name="repetitions" id="repetitions_polygone" min="1" max="1000" value="{{ request.form.get('repetitions', 10) }}" />
+                        <input type="number" name="repetitions" id="repetitions_polygone" min="1" max="100" value="{{ request.form.get('repetitions', 10) }}" />
                     </div>
                     <div class="input">
                         <label for="angle">Angle :</label>
@@ -69,7 +69,7 @@
                     </div>
                     <div class="input">
                         <label for="repetitions_spirale">Répétitions :</label>
-                        <input type="number" name="repetitions_spirale" id="repetitions_spirale" min="1" max="1000" value="{{ request.form.get('repetitions_spirale', 10) }}" />
+                        <input type="number" name="repetitions_spirale" id="repetitions_spirale" min="1" max="100" value="{{ request.form.get('repetitions_spirale', 10) }}" />
                     </div>
                     <div class="input">
                         <label for="angle_spirale">Angle :</label>
@@ -85,7 +85,7 @@
                     </div>
                     <div class="input">
                         <label for="repetitions_autres">Répétitions :</label>
-                        <input type="number" name="repetitions_autres" id="repetitions_autres" min="1" max="1000" value="{{ request.form.get('repetitions_autres', 10) }}" />
+                        <input type="number" name="repetitions_autres" id="repetitions_autres" min="1" max="100" value="{{ request.form.get('repetitions_autres', 10) }}" />
                     </div>
                     <div class="input">
                         <label for="angle_autres">Angle :</label>
@@ -105,10 +105,11 @@
                         <input type="number" name="niveau" id="niveau" min="1" max="7" value="{{ request.form.get('niveau', 4) }}" />
                     </div>
                 </div>
-
+                
+                <!-- bouton pour générer le motif -->
                 <button type="submit" style="margin-top:15px;">Générer le motif</button>
                 <br>
-                <!-- bouton pour générer le motif -->
+                <a href="/galerie" class="bouton-lien">Voir la galerie</a> <!-- lien vers la galerie d'images-->
             </div>
         </form>
 
@@ -121,7 +122,6 @@
         <div class="result">
             <h2>Motif généré :</h2>
             <img src="{{ url_for('static', filename='images/' + image_file) }}" alt="Motif généré" />
-            <!-- Affichage de l'image-->
         </div>
         {% endif %}
     </div>
