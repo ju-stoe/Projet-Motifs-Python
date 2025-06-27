@@ -41,28 +41,57 @@
                     <!-- Champ texte pour nommer le fichier image à générer -->
                 </div>
 
-                <!-- Polygone / Spirale / Cercle / Coeur / Étoile -->
-                <div id="params_polygone_spirale" style="display:none;">
+                <!-- Polygone -->
+                 <div id="params_polygone" style="display:none;">
                     <div class="input">
                         <label for="cotes">Nombre de côtés :</label>
                         <input type="number" name="cotes" id="cotes" min="3" value="{{ request.form.get('cotes', 3) }}" />
                     </div>
-
                     <div class="input">
-                        <label for="taille">Taille de base :</label>
-                        <input type="number" name="taille" id="taille" min="1" value="{{ request.form.get('taille', 100) }}" />
+                        <label for="taille">Taille :</label>
+                        <input type="number" name="taille" id="taille_polygone" min="1" value="{{ request.form.get('taille', 100) }}" />
                     </div>
-
                     <div class="input">
-                        <label for="repetitions">Nombre de répétitions :</label>
-                        <input type="number" name="repetitions" id="repetitions" min="1" max="1000" value="{{ request.form.get('repetitions', 10) }}" />
+                        <label for="repetitions">Répétitions :</label>
+                        <input type="number" name="repetitions" id="repetitions_polygone" min="1" max="1000" value="{{ request.form.get('repetitions', 10) }}" />
                     </div>
-
                     <div class="input">
-                        <label for="angle">Angle entre chaque motif :</label>
-                        <input type="number" name="angle" id="angle" min="0" max="360" value="{{ request.form.get('angle', 10) }}" />
+                        <label for="angle">Angle :</label>
+                        <input type="number" name="angle" id="angle_polygone" min="0" max="360" value="{{ request.form.get('angle', 10) }}" />
                     </div>
                 </div>
+
+                <!--Spirale-->
+                <div id="params_spirale" style="display:none;">
+                    <div class="input">
+                        <label for="taille">Taille :</label>
+                        <input type="number" name="taille" id="taille_spirale" min="1" value="{{ request.form.get('taille', 100) }}" />
+                    </div>
+                    <div class="input">
+                        <label for="repetitions">Répétitions :</label>
+                        <input type="number" name="repetitions" id="repetitions_spirale" min="1" max="1000" value="{{ request.form.get('repetitions', 10) }}" />
+                    </div>
+                    <div class="input">
+                        <label for="angle">Angle :</label>
+                        <input type="number" name="angle" id="angle_spirale" min="0" max="360" value="{{ request.form.get('angle', 10) }}" />
+                    </div>
+                </div>
+                
+                <!-- Cercle / Coeur / Étoile -->
+                <div id="params_autres" style="display:none;">
+                    <div class="input">
+                        <label for="taille">Taille :</label>
+                        <input type="number" name="taille" id="taille_autres" min="1" value="{{ request.form.get('taille', 100) }}" />
+                    </div>
+                    <div class="input">
+                        <label for="repetitions">Répétitions :</label>
+                        <input type="number" name="repetitions" id="repetitions_autres" min="1" max="1000" value="{{ request.form.get('repetitions', 10) }}" />
+                    </div>
+                    <div class="input">
+                        <label for="angle">Angle :</label>
+                        <input type="number" name="angle" id="angle_autres" min="0" max="360" value="{{ request.form.get('angle', 10) }}" />
+                    </div>
+                </div>                   
 
                 <!-- Fractale -->
                 <div id="params_fractale" style="display:none;">

@@ -52,12 +52,11 @@ def index():
 
         try:
             
-            if type_motif in ['polygone', 'spirale', 'cercle','coeur','etoile']:
+            if type_motif == 'polygone':
                 cotes = int(request.form.get('cotes'))
                 taille = int(request.form.get('taille'))
                 repetitions = int(request.form.get('repetitions'))
                 angle = int(request.form.get('angle'))
-
                 lancer_dessin(type_motif, cotes, taille, repetitions, angle, couleur, chemin_fichier)
                 image_file = filename
 
@@ -65,8 +64,23 @@ def index():
             elif type_motif == 'fractale':
                 taille = int(request.form.get('taille_fractale'))
                 niveau = int(request.form.get('niveau'))
-
                 lancer_dessin(type_motif, 0, taille, niveau, 0, couleur, chemin_fichier)
+                image_file = filename
+
+            elif type_motif == 'spirale':
+                cotes = 0
+                taille = int(request.form.get('taille'))
+                repetitions = int(request.form.get('repetitions'))
+                angle = int(request.form.get('angle'))
+                lancer_dessin(type_motif, cotes, taille, repetitions, angle, couleur, chemin_fichier)
+                image_file = filename
+            
+            elif type_motif in ['cercle','coeur','etoile']:
+                cotes = 0
+                taille = int(request.form.get('taille'))
+                repetitions = int(request.form.get('repetitions'))
+                angle = int(request.form.get('angle'))
+                lancer_dessin(type_motif, cotes, taille, repetitions, angle, couleur, chemin_fichier)
                 image_file = filename
 
             else:
