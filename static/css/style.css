@@ -118,6 +118,10 @@ input:focus, select:focus {
         max-width: 100%;
         width: 90%;
     }
+
+    h1::before{
+        display: none;
+    }
 }
 
 /* galerie */
